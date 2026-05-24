@@ -14,8 +14,7 @@ const navLinks = [
 export function Header() {
   const pathname = usePathname();
   const isZh = pathname.startsWith("/zh");
-  const langSwitch = isZh ? "/" + pathname.slice(4) : "/zh" + pathname;
-  const langSwitchLabel = isZh ? "EN" : "中文";
+  const toZh = isZh ? "/" + (pathname.slice(4) || "") : "/zh" + (pathname || "");
 
   return (
     <header className="sticky top-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/50">
@@ -26,9 +25,9 @@ export function Header() {
           </Link>
           <nav className="hidden sm:flex items-center gap-6">
             {navLinks.map((link) => (
-              <Link key={link.href} href={isZh ? `/zh${link.href}` : link.href}
+              <Link key={link.href} href={link.href}
                 className={cn("text-[14px] transition-colors",
-                  pathname === (isZh ? `/zh${link.href === "/" ? "" : link.href}` : link.href) || (link.href === "/" && (pathname === "/" || pathname === "/zh"))
+                  pathname.replace("/zh","") === link.href || (link.href === "/" && (pathname === "/" || pathname === "/zh"))
                     ? "text-foreground" : "text-muted-foreground hover:text-foreground")}>
                 {link.label}
               </Link>
@@ -36,8 +35,8 @@ export function Header() {
           </nav>
         </div>
         <div className="flex items-center gap-2">
-          <Link href={langSwitch} className="text-[13px] text-muted-foreground hover:text-foreground px-2 py-1 rounded-full hover:bg-muted/50 transition-all">
-            {langSwitchLabel}
+          <Link href={toZh || "/zh"} className="text-[13px] text-muted-foreground hover:text-foreground px-2 py-1 rounded-full hover:bg-muted/50 transition-all">
+            {isZh ? "EN" : "中文"}
           </Link>
           <ThemeToggle />
         </div>

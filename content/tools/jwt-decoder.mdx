@@ -1,0 +1,45 @@
+---
+title: "Online JWT Decoder — Free JWT Token Parser"
+description: "Decode JWT tokens online for free. View JWT header, payload, and signature. All processing happens locally in your browser. No data is ever uploaded."
+keywords:
+  - JWT decoder
+  - JWT parser
+  - decode JWT
+  - JWT token viewer
+  - online JWT decoder
+---
+
+## What is a JWT Decoder?
+
+JWT (JSON Web Token) is a compact, URL-safe token format used for authentication and information exchange. A JWT consists of three Base64-encoded parts: the header, the payload, and the signature, separated by dots.
+
+Our JWT decoder lets you paste in any JWT and instantly see its decoded header and payload in readable JSON format. It's useful for debugging authentication flows, inspecting API tokens, and learning how JWT works.
+
+## Why Use Our JWT Decoder?
+
+- **Instant decoding** — Paste a token and see the contents immediately
+- **Private by design** — Your tokens are processed locally in your browser and never transmitted anywhere
+- **No verification** — Decode tokens without needing the secret key (view claims only)
+- **Clean output** — Header and payload displayed as formatted JSON
+
+<!--tool-->
+
+## How to Use This JWT Decoder
+
+1. Copy a JWT token from your application's headers, cookies, or local storage
+2. Paste it into the input field above
+3. Click **Decode** to view the header and payload
+
+## Frequently Asked Questions
+
+### Is my JWT token safe?
+Absolutely. All decoding happens in your browser. Your JWT token is never sent to any server.
+
+### Does this tool verify JWT signatures?
+No. This is a decoder, not a verifier. It shows you the contents of the token but does not cryptographically verify the signature. To verify signatures, you need the secret key or public key.
+
+### What's inside a JWT header?
+The header typically contains the token type ("JWT") and the signing algorithm (e.g., HS256, RS256).
+
+### What's inside a JWT payload?
+The payload contains the claims — information about the user or entity, such as user ID, email, role, expiration time (exp), and issued-at time (iat).

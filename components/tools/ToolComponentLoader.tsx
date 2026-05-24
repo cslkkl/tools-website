@@ -14,13 +14,20 @@ const toolComponents: Record<string, React.ComponentType> = {
   "text-diff": dynamic(() => import("./TextDiffTool")),
   "image-compressor": dynamic(() => import("./ImageCompressorTool")),
   "markdown-editor": dynamic(() => import("./MarkdownEditorTool")),
+  "jwt-decoder": dynamic(() => import("./JwtDecoderTool")),
+  "color-converter": dynamic(() => import("./ColorConverterTool")),
+  "timestamp-converter": dynamic(() => import("./TimestampConverterTool")),
+  "lorem-ipsum": dynamic(() => import("./LoremIpsumTool")),
+  "regex-tester": dynamic(() => import("./RegexTesterTool")),
+  "html-entity": dynamic(() => import("./HtmlEntityTool")),
+  "number-base": dynamic(() => import("./NumberBaseTool")),
 };
 
 function ToolSkeleton() {
   return (
-    <div className="rounded-xl border border-border bg-card p-6 animate-pulse">
-      <div className="h-4 bg-muted rounded w-1/3 mb-4" />
-      <div className="h-48 bg-muted rounded" />
+    <div className="animate-pulse">
+      <div className="h-3 bg-muted rounded-full w-1/3 mb-5" />
+      <div className="h-48 bg-muted rounded-2xl" />
     </div>
   );
 }
@@ -29,12 +36,11 @@ export function ToolComponentLoader({ slug }: { slug: string }) {
   const Component = toolComponents[slug];
   if (!Component) {
     return (
-      <div className="rounded-xl border border-border bg-card p-6 text-center text-muted-foreground">
-        Tool component not found.
+      <div className="text-center text-muted-foreground py-10 text-[14px]">
+        Tool not found.
       </div>
     );
   }
-
   return (
     <Suspense fallback={<ToolSkeleton />}>
       <Component />

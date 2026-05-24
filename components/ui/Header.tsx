@@ -15,27 +15,22 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
-      <div className="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
-        <div className="flex items-center gap-6">
-          <Link
-            href="/"
-            className="text-lg font-bold text-foreground hover:text-primary transition-colors"
-          >
-            Online Toolbox
+    <header className="sticky top-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/50">
+      <div className="mx-auto max-w-5xl px-5 h-13 flex items-center justify-between">
+        <div className="flex items-center gap-8">
+          <Link href="/"
+            className="text-[17px] font-semibold text-foreground tracking-tight hover:opacity-70">
+            toolbox
           </Link>
-          <nav className="hidden sm:flex items-center gap-1">
+          <nav className="hidden sm:flex items-center gap-6">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
+              <Link key={link.href} href={link.href}
                 className={cn(
-                  "px-3 py-1.5 rounded-md text-sm transition-colors",
+                  "text-[14px] transition-colors",
                   pathname === link.href
-                    ? "bg-accent text-accent-foreground font-medium"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                )}
-              >
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                )}>
                 {link.label}
               </Link>
             ))}

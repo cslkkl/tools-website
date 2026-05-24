@@ -1,0 +1,54 @@
+---
+title: "Online Text Diff Checker — Compare Text and Find Differences"
+description: "Compare two texts side by side and find differences instantly. Free online diff tool with color-coded additions and removals. All processing happens in your browser."
+keywords:
+  - text diff
+  - diff checker
+  - text compare
+  - online diff tool
+  - compare text online
+---
+
+## What is a Text Diff Checker?
+
+A text diff checker is a tool that compares two pieces of text and highlights the differences between them. It shows what lines have been added, removed, or stayed the same — similar to the `git diff` command that developers use every day.
+
+Our Text Diff Checker uses the same `diff` algorithm behind many version control systems. It's perfect for comparing code versions, reviewing document edits, or checking configuration file changes.
+
+## Why Use Our Text Diff Checker?
+
+- **Git-style diff output** — Clear color-coded differences with +/- indicators
+- **Side-by-side comparison** — Paste original and modified text in separate panels
+- **Line-by-line analysis** — Shows which specific lines were added, removed, or unchanged
+- **100% private** — All comparison happens locally in your browser
+
+<!--tool-->
+
+## How to Use This Text Diff Checker
+
+1. Paste the **original text** in the left textarea
+2. Paste the **modified text** in the right textarea
+3. Click **Compare**
+4. View the **color-coded diff** output with statistics
+
+### Understanding the Output
+
+| Color | Meaning |
+|-------|---------|
+| **Green** (`+`) | Lines added in the modified text |
+| **Red** (`-`) | Lines removed from the original text |
+| **White** (no prefix) | Lines that remained unchanged |
+
+## Frequently Asked Questions
+
+### How does text diff work?
+The tool uses a line-by-line comparison algorithm (Myers diff algorithm via the `diff` npm package). It identifies the minimum number of changes needed to transform the original text into the modified text.
+
+### Is my text stored anywhere?
+No. All comparison happens in your browser. Your text is never transmitted to any server.
+
+### Can I compare code files?
+Yes. The diff checker works with any text format: code, configuration files, prose, data, and more.
+
+### Is there a limit on text size?
+The tool works well with texts up to several thousand lines. For very large files (10,000+ lines), consider using a desktop diff tool instead.

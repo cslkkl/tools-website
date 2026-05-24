@@ -3,7 +3,7 @@ import { getAllSlugs } from "@/lib/tools/registry";
 import { getAllBlogSlugs } from "@/lib/content/blog";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://onlinetoolbox.dev";
+  const baseUrl = "https://toolboxonline.online";
 
   const toolPages = getAllSlugs().map((slug) => ({
     url: `${baseUrl}/${slug}`,

@@ -62,12 +62,12 @@ export function WebsiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Online Toolbox",
-    url: "https://onlinetoolbox.dev",
+    url: "https://toolboxonline.online",
     description:
       "Free online tools for developers and everyday tasks. All processing happens in your browser.",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://onlinetoolbox.dev/search?q={search_term_string}",
+      target: "https://toolboxonline.online/search?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };

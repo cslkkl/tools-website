@@ -46,7 +46,7 @@ export default async function BlogPostPage({ params }: Props) {
       <BlogPostingJsonLd
         title={post.frontmatter.title}
         description={post.frontmatter.description}
-        url={`https://onlinetoolbox.dev/blog/${slug}`}
+        url={`https://toolboxonline.online/blog/${slug}`}
         datePublished={post.frontmatter.date}
         authorName={post.frontmatter.author}
       />

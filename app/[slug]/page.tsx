@@ -64,7 +64,7 @@ export default async function ToolPage({ params }: Props) {
       <SoftwareAppJsonLd
         name={tool.name}
         description={tool.description}
-        url={`https://onlinetoolbox.dev/${slug}`}
+        url={`https://toolboxonline.online/${slug}`}
       />
       {content && (
         <FAQPageJsonLd

@@ -3,7 +3,11 @@ export type ToolCategory =
   | "text"
   | "image"
   | "security"
-  | "converter";
+  | "converter"
+  | "math"
+  | "everyday"
+  | "design"
+  | "content";
 
 export interface ToolDefinition {
   id: string;

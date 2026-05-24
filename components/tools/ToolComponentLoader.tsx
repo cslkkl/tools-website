@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
 const toolComponents: Record<string, React.ComponentType> = {
+  // Original 10
   "base64-encoder": dynamic(() => import("./Base64Tool")),
   "url-encoder": dynamic(() => import("./UrlEncoderTool")),
   "uuid-generator": dynamic(() => import("./UuidGeneratorTool")),
@@ -14,6 +15,7 @@ const toolComponents: Record<string, React.ComponentType> = {
   "text-diff": dynamic(() => import("./TextDiffTool")),
   "image-compressor": dynamic(() => import("./ImageCompressorTool")),
   "markdown-editor": dynamic(() => import("./MarkdownEditorTool")),
+  // Batch 1 (v2)
   "jwt-decoder": dynamic(() => import("./JwtDecoderTool")),
   "color-converter": dynamic(() => import("./ColorConverterTool")),
   "timestamp-converter": dynamic(() => import("./TimestampConverterTool")),
@@ -21,6 +23,29 @@ const toolComponents: Record<string, React.ComponentType> = {
   "regex-tester": dynamic(() => import("./RegexTesterTool")),
   "html-entity": dynamic(() => import("./HtmlEntityTool")),
   "number-base": dynamic(() => import("./NumberBaseTool")),
+  // Batch 2 (v3 — 22 new)
+  "unit-converter": dynamic(() => import("./UnitConverterTool")),
+  "hash-generator": dynamic(() => import("./HashGeneratorTool")),
+  "case-converter": dynamic(() => import("./CaseConverterTool")),
+  "percentage-calculator": dynamic(() => import("./PercentageCalculatorTool")),
+  "bmi-calculator": dynamic(() => import("./BmiCalculatorTool")),
+  "age-calculator": dynamic(() => import("./AgeCalculatorTool")),
+  "color-palette": dynamic(() => import("./ColorPaletteTool")),
+  "sql-formatter": dynamic(() => import("./SqlFormatterTool")),
+  "json-to-csv": dynamic(() => import("./JsonToCsvTool")),
+  "tip-calculator": dynamic(() => import("./TipCalculatorTool")),
+  "discount-calculator": dynamic(() => import("./DiscountCalculatorTool")),
+  "average-calculator": dynamic(() => import("./AverageCalculatorTool")),
+  "temperature-converter": dynamic(() => import("./TemperatureConverterTool")),
+  "text-to-slug": dynamic(() => import("./TextToSlugTool")),
+  "yaml-to-json": dynamic(() => import("./YamlToJsonTool")),
+  "css-minifier": dynamic(() => import("./CssMinifierTool")),
+  "aspect-ratio": dynamic(() => import("./AspectRatioTool")),
+  "stopwatch": dynamic(() => import("./StopwatchTool")),
+  "meta-tag-generator": dynamic(() => import("./MetaTagGeneratorTool")),
+  "emoji-picker": dynamic(() => import("./EmojiPickerTool")),
+  "random-number": dynamic(() => import("./RandomNumberTool")),
+  "file-size-converter": dynamic(() => import("./FileSizeConverterTool")),
 };
 
 function ToolSkeleton() {

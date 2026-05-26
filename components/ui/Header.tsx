@@ -5,18 +5,15 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils/cn";
 import { ThemeToggle } from "./ThemeToggle";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "About" },
-];
-
 export function Header() {
   const pathname = usePathname();
   const isZh = pathname.startsWith("/zh");
   const enPath = pathname.replace(/^\/zh/, "") || "/";
-  const noZh = ["/blog","/about","/privacy","/terms"].some(p => enPath === p || enPath.startsWith(p + "/"));
-  const toZh = noZh ? "/zh" : isZh ? "/" + pathname.slice(4) : "/zh" + pathname;
+  const toZh = isZh ? "/" + (pathname.slice(4) || "/") : "/zh" + pathname;
+
+  const t = isZh
+    ? { home: "首页", blog: "博客", about: "关于" }
+    : { home: "Home", blog: "Blog", about: "About" };
 
   return (
     <header className="sticky top-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/50">
@@ -26,14 +23,9 @@ export function Header() {
             toolbox
           </Link>
           <nav className="hidden sm:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}
-                className={cn("text-[14px] transition-colors",
-                  pathname.replace("/zh","") === link.href || (link.href === "/" && (pathname === "/" || pathname === "/zh"))
-                    ? "text-foreground" : "text-muted-foreground hover:text-foreground")}>
-                {link.label}
-              </Link>
-            ))}
+            <Link href={isZh ? "/zh" : "/"} className={cn("text-[14px] transition-colors", pathname==="/"||pathname==="/zh"?"text-foreground":"text-muted-foreground hover:text-foreground")}>{t.home}</Link>
+            <Link href={isZh ? "/zh/blog" : "/blog"} className={cn("text-[14px] transition-colors", enPath.startsWith("/blog")?"text-foreground":"text-muted-foreground hover:text-foreground")}>{t.blog}</Link>
+            <Link href={isZh ? "/zh/about" : "/about"} className={cn("text-[14px] transition-colors", enPath.startsWith("/about")?"text-foreground":"text-muted-foreground hover:text-foreground")}>{t.about}</Link>
           </nav>
         </div>
         <div className="flex items-center gap-2">

@@ -14,7 +14,9 @@ const navLinks = [
 export function Header() {
   const pathname = usePathname();
   const isZh = pathname.startsWith("/zh");
-  const toZh = isZh ? "/" + (pathname.slice(4) || "") : "/zh" + (pathname || "");
+  const enPath = pathname.replace(/^\/zh/, "") || "/";
+  const noZh = ["/blog","/about","/privacy","/terms"].some(p => enPath === p || enPath.startsWith(p + "/"));
+  const toZh = noZh ? "/zh" : isZh ? "/" + pathname.slice(4) : "/zh" + pathname;
 
   return (
     <header className="sticky top-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/50">

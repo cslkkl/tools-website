@@ -1,0 +1,203 @@
+---
+title: "Regex Cheat Sheet: A Complete Guide to Regular Expressions for Beginners"
+description: "Learn regular expressions from scratch with this beginner-friendly regex cheat sheet. Includes common patterns, examples, and a free online regex tester."
+date: "2026-05-26"
+tags: ["Regex", "Developer Tools", "Cheat Sheet"]
+author: "Online Toolbox Team"
+---
+
+## What Are Regular Expressions?
+
+Regular expressions (regex) are patterns used to match character combinations in text. They look like cryptic code at first glance, but once you understand the basics, they become one of the most powerful tools in a developer's toolkit.
+
+A regex pattern like `\d{3}-\d{4}` can instantly find all phone numbers in a document. Another pattern like `[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}` finds every email address on a webpage.
+
+## Why Learn Regex?
+
+Regex saves you hours of manual searching and text manipulation. Instead of scanning through thousands of lines of code or data by hand, you write one pattern and let regex do the work in milliseconds.
+
+Common use cases:
+
+- **Form validation** — Check if a user entered a valid email, phone number, or ZIP code
+- **Search and replace** — Find and modify patterns across entire codebases
+- **Data extraction** — Pull URLs, emails, prices, or dates from unstructured text
+- **Log analysis** — Parse server logs to find errors or patterns
+- **Web scraping** — Extract structured data from HTML
+
+## Basic Regex Syntax
+
+### Literal Characters
+
+The simplest regex — just type what you're looking for:
+
+| Pattern | Matches |
+|---------|---------|
+| `hello` | The exact word "hello" |
+| `123` | The digits "123" |
+
+### Character Classes
+
+| Pattern | Meaning |
+|---------|---------|
+| `.` | Any single character except newline |
+| `\d` | Any digit (0-9) |
+| `\w` | Any word character (a-z, A-Z, 0-9, _) |
+| `\s` | Any whitespace (space, tab, newline) |
+| `\D` | NOT a digit |
+| `\W` | NOT a word character |
+| `\S` | NOT whitespace |
+| `[abc]` | Any single character: a, b, or c |
+| `[^abc]` | Any character EXCEPT a, b, or c |
+| `[a-z]` | Any lowercase letter |
+| `[0-9]` | Any digit (same as \d) |
+
+### Quantifiers — How Many
+
+| Pattern | Meaning |
+|---------|---------|
+| `*` | Zero or more |
+| `+` | One or more |
+| `?` | Zero or one |
+| `{3}` | Exactly 3 |
+| `{2,5}` | Between 2 and 5 |
+| `{2,}` | 2 or more |
+
+### Anchors — Position Matching
+
+| Pattern | Meaning |
+|---------|---------|
+| `^` | Start of line/string |
+| `$` | End of line/string |
+| `\b` | Word boundary |
+| `\B` | NOT a word boundary |
+
+### Groups and Alternation
+
+| Pattern | Meaning |
+|---------|---------|
+| `(abc)` | Capturing group |
+| `(?:abc)` | Non-capturing group |
+| `a\|b` | "a" or "b" (alternation) |
+
+### Escape Sequences
+
+Since characters like `.`, `*`, `+`, `?`, `[`, `]`, `(`, `)`, `{`, `}`, `^`, `$`, `|`, `\` have special meanings in regex, you need to escape them with a backslash if you want to match them literally:
+
+| Pattern | Matches |
+|---------|---------|
+| `\.` | A literal period |
+| `\\` | A literal backslash |
+| `\+` | A literal plus sign |
+
+## Essential Regex Patterns — Copy and Use
+
+### Email Validation
+
+```
+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}
+```
+Matches: `user@example.com`, `john.doe+spam@gmail.com`
+
+### URL Matching
+
+```
+https?://[^\s]+
+```
+Matches: `https://example.com/path?query=value`
+
+### Phone Number (US)
+
+```
+\d{3}[-.]?\d{3}[-.]?\d{4}
+```
+Matches: `555-123-4567`, `555.123.4567`, `5551234567`
+
+### Strong Password Checker
+
+```
+^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$
+```
+Must contain lowercase, uppercase, digit, special char, and be at least 8 characters. Use our [Password Generator](/password-generator) to create compliant passwords.
+
+### IP Address (IPv4)
+
+```
+\b(?:\d{1,3}\.){3}\d{1,3}\b
+```
+Matches: `192.168.1.1`, `10.0.0.255`
+
+### Date (YYYY-MM-DD)
+
+```
+\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])
+```
+Matches: `2026-05-26`, `2024-12-31`
+
+### HTML Tag
+
+```
+<\/?[a-z][a-z0-9]*[^>]*>
+```
+Matches: `<div>`, `</span>`, `<input type="text">`
+
+## Regex Flags
+
+Most regex engines support flags that change how patterns behave:
+
+| Flag | Name | Effect |
+|------|------|--------|
+| `g` | Global | Find ALL matches, not just the first one |
+| `i` | Case-insensitive | `hello` matches `Hello`, `HELLO`, `HeLLo` |
+| `m` | Multiline | `^` and `$` match start/end of each line, not just the whole string |
+| `s` | Dotall | `.` matches newline characters too |
+| `u` | Unicode | Enable full Unicode matching |
+
+Common combinations: `gi` (global + case-insensitive), `gm` (global + multiline).
+
+## Tips for Writing Better Regex
+
+1. **Start small** — Build your pattern incrementally. Test each piece before combining.
+2. **Use a regex tester** — Our [free online regex tester](/regex-tester) shows live matches, captures, and positions as you type.
+3. **Be specific** — `\d+` matches any number. But `\d{3}-\d{4}` only matches a phone-number-like pattern. More specific = fewer false positives.
+4. **Watch out for greediness** — `.*` matches as MUCH as possible. Use `.*?` for lazy matching (matches as little as possible).
+5. **Comment complex patterns** — If you write a complex regex, leave a comment explaining what it does. Your future self will thank you.
+
+## Test Your Regex in Real Time
+
+The best way to learn regex is by doing. Try our [Regex Tester](/regex-tester) — it supports JavaScript-compatible regex with live match highlighting, capture groups, and position display.
+
+Paste a test string, write a pattern, and see what matches instantly. No sign-up, no uploads — everything runs in your browser.
+
+## Common Regex Mistakes Beginners Make
+
+### 1. Forgetting to Escape Special Characters
+
+```
+Wrong: example.com
+Right: example\.com
+```
+The `.` matches ANY character, so `example.com` also matches `exampleXcom`.
+
+### 2. Using `.*` When You Need `.+`
+
+```
+.*  = zero or more (matches empty strings)
+.+  = one or more (requires at least one character)
+```
+
+### 3. Assuming `\d` Matches All Digits
+
+`\d` matches `0123456789` but NOT fractions like `½` or Unicode digits. If you need to match international number systems, use `\p{N}` with the Unicode flag.
+
+### 4. Not Anchoring the Pattern
+
+```
+Password validator without ^...$: opens the door to partial matches
+Password validator with ^...$: requires the ENTIRE string to match
+```
+
+## Next Steps
+
+Mastering regex takes practice, but the payoff is enormous. Start with our [Regex Tester](/regex-tester), build a few patterns from this cheat sheet, and within a week regex will feel like a superpower.
+
+Bookmark this page — you'll come back to it. And if you need to format JSON or generate passwords while you work, try our [other free developer tools](/) as well.
